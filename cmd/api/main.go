@@ -17,7 +17,7 @@ import (
 func main() {
 	c := config.Load()
 
-	conn, err := sql.Open("pgx", c.DatabaseURL)
+	conn, err := sql.Open(c.DatabaseDriver, c.DatabaseURL)
 	if err != nil {
 		log.Fatal(err)
 	}
