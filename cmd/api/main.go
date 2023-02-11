@@ -28,6 +28,6 @@ func main() {
 
 	err = api.Start(c, h)
 	if err != nil {
-		log.Fatalf("error running api: %s", err)
+		c.Logger.Fatalln("startup", "status", "failed to startup server", "error", err)
 	}
 }

@@ -1,17 +1,5 @@
 start:
-	@go run ./cmd/api/main.go
+	go run cmd/api/main.go | go run cmd/logfmt/main.go
 
-migrate:
-	@go run ./cmd/database/migrate/main.go migrate
-
-rollback:
-	@go run ./cmd/database/migrate/main.go rollback
-
-drop:
-	@go run ./cmd/database/migrate/main.go drop
-
-fresh:
-	@go run ./cmd/database/migrate/main.go fresh
-
-force:
-	@go run ./cmd/database/migrate/main.go force
+build-migrator:
+	@go build -o bin/migrator cmd/database/migrator/main.go
